@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2nd Cree Nation Business Summit | Eeyou Istchee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy-deep: #0F1D35;
+  --navy: #1A2B4A;
+  --navy-mid: #223759;
+  --teal-deep: #1B6B6B;
+  --teal: #2A8B8B;
+  --teal-light: #3AABA8;
+  --teal-bright: #4DC4BF;
+  --steel: #2E7D9E;
+  --steel-light: #4A9DBE;
+  --sky-light: #7EC8D9;
+  --cream: #F4F7FA;
+  --cream-warm: #EEF2F5;
+  --white: #FFFFFF;
+  --gold: #D4A843;
+  --gold-light: #E8C76A;
+  --text-dark: #1A1A2E;
+  --text-body: #3A3D4A;
+  --text-light: #F0F4F8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--text-body);
+  overflow-x: hidden;
+}
+
+/* ── Navigation ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--navy-deep);
+  border-bottom: 3px solid var(--teal);
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 70px;
+}
+.nav-logo { display: flex; align-items: center; gap: 0; text-decoration: none; }
+.nav-wordmark {
+  font-family: 'DM Serif Display', serif;
+  color: var(--white);
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.nav-links { display: flex; gap: 0; }
+.nav-links a {
+  color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.5rem 1.2rem; border: 1px solid transparent; border-radius: 4px;
+  transition: all 0.25s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--teal-bright); border-color: rgba(77,196,191,0.3); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.3s; }
+
+/* ── Mountain SVG Background Helper ── */
+.mountain-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative;
+  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 30%, var(--navy-mid) 55%, var(--teal-deep) 80%, var(--teal) 100%);
+  overflow: hidden;
+}
+.hero-stars {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.hero-star {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+.hero-star:nth-child(odd) { animation-delay: 1.5s; }
+.hero-star.large { width: 5px; height: 5px; }
+.hero-star.large::before {
+  content: ''; position: absolute;
+  top: -3px; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 11px; background: rgba(255,255,255,0.4);
+}
+.hero-star.large::after {
+  content: ''; position: absolute;
+  left: -3px; top: 50%; transform: translateY(-50%);
+  width: 11px; height: 1px; background: rgba(255,255,255,0.4);
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+.hero-mountains {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  min-width: 100vw;
+  max-width: none;
+  height: clamp(220px, 35vh, 420px);
+  display: block;
+}
+.hero-content { position: relative; z-index: 2; padding: 2rem; max-width: 900px; }
+.hero-badge {
+  display: inline-block; background: rgba(77,196,191,0.15); border: 1px solid rgba(77,196,191,0.4);
+  color: var(--teal-bright); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 0.5rem 1.5rem; border-radius: 30px; margin-bottom: 2rem;
+  animation: fadeInDown 0.8s ease;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--white); line-height: 1.1; margin-bottom: 0.5rem;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+.hero h1 em { color: var(--teal-bright); font-style: italic; }
+.hero-sub {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: rgba(255,255,255,0.65);
+  font-weight: 300; margin-bottom: 1rem; animation: fadeInUp 0.8s ease 0.35s both;
+}
+.hero-location {
+  font-size: 1rem; color: var(--teal-bright); font-weight: 500; letter-spacing: 0.05em;
+  margin-bottom: 2.5rem; animation: fadeInUp 0.8s ease 0.5s both;
+}
+.hero-location svg { vertical-align: middle; margin-right: 4px; }
+.hero-cta {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease 0.65s both;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 0.85rem 2rem;
+  border-radius: 6px; font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem;
+  font-weight: 600; text-decoration: none; letter-spacing: 0.03em; transition: all 0.3s;
+  cursor: pointer; border: none;
+}
+.btn-primary { background: var(--teal); color: var(--white); }
+.btn-primary:hover { background: var(--teal-deep); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42,139,139,0.4); }
+.btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.35); }
+.btn-outline:hover { border-color: var(--teal-bright); color: var(--teal-bright); transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--navy-deep); }
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,168,67,0.4); }
+.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; z-index: 3; }
+.hero-scroll svg { opacity: 0.4; }
+
+/* ── Stats Strip ── */
+.stats-strip { background: var(--navy-deep); border-top: 3px solid var(--teal); border-bottom: 3px solid var(--teal); }
+.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; }
+.stat-item { padding: 2.5rem 1.5rem; position: relative; }
+.stat-item:not(:last-child)::after {
+  content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px;
+  background: rgba(77,196,191,0.2);
+}
+.stat-number { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--teal-bright); line-height: 1; margin-bottom: 0.4rem; }
+.stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.55); font-weight: 400; line-height: 1.4; }
+.stat-label strong { display: block; color: rgba(255,255,255,0.85); font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
+
+/* ── Section Common ── */
+.section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+.section-header { margin-bottom: 3rem; }
+.section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--navy-deep); line-height: 1.15; }
+.section-title em { color: var(--steel); font-style: italic; }
+.section-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--teal), var(--steel)); border-radius: 2px; margin-top: 1rem; }
+.section-desc { font-size: 1.05rem; color: var(--text-body); line-height: 1.7; max-width: 720px; margin-top: 1.25rem; }
+
+/* ── About ── */
+#about { background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.about-card {
+  background: var(--white); border-radius: 12px; padding: 2.5rem;
+  border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+.about-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--navy-deep); margin-bottom: 1rem; }
+.about-card p { line-height: 1.7; color: var(--text-body); }
+.theme-highlight {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, var(--teal-deep) 100%);
+  color: var(--white); border: none;
+}
+.theme-highlight:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.theme-highlight h3 { color: var(--teal-bright); }
+.theme-highlight p { color: rgba(255,255,255,0.8); }
+.theme-tag {
+  display: inline-block; background: rgba(77,196,191,0.15); color: var(--teal-bright);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.35rem 1rem; border-radius: 20px; margin-bottom: 1rem;
+}
+
+/* ── Bear Den ── */
+#bearden {
+  background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 5rem 2rem; position: relative; overflow: hidden;
+}
+#bearden::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 50% at 80% 20%, rgba(77,196,191,0.06) 0%, transparent 60%);
+}
+.bearden-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+#bearden .section-label { color: var(--teal-bright); }
+#bearden .section-title { color: var(--white); }
+#bearden .section-title em { color: var(--teal-bright); }
+#bearden .section-desc { color: rgba(255,255,255,0.65); }
+.winner-carousel {
+  position: relative;
+  margin-top: 2.5rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(77,196,191,0.2);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+}
+.winner-track {
+  display: flex;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+.winner-slide {
+  min-width: 100%;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.winner-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.winner-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,29,53,0.08) 0%, rgba(15,29,53,0.15) 30%, rgba(15,29,53,0.82) 100%);
+}
+.winner-slide-content {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.winner-slide-text {
+  max-width: 620px;
+}
+.winner-kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal-bright);
+  margin-bottom: 0.75rem;
+}
+.winner-slide-text h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 0.35rem;
+}
+.winner-slide-text p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.winner-play {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.winner-carousel-controls {
+  position: absolute;
+  inset: auto 1.2rem 1.2rem auto;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.winner-nav {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(15,29,53,0.55);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.winner-nav:hover {
+  border-color: rgba(77,196,191,0.55);
+  color: var(--teal-bright);
+}
+.winner-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 1.3rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.55rem;
+}
+.winner-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+}
+.winner-dot.active {
+  background: var(--teal-bright);
+  transform: scale(1.15);
+}
+.podium { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; margin-bottom: 3rem; }
+.podium-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(77,196,191,0.15);
+  border-radius: 12px; padding: 2rem; text-align: center; transition: all 0.3s; position: relative; overflow: hidden;
+}
+.podium-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(77,196,191,0.35); transform: translateY(-4px); }
+.podium-card.first { border-color: var(--gold); background: rgba(212,168,67,0.08); }
+.podium-card.is-active {
+  border-color: var(--teal-bright);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.podium-media {
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.podium-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.podium-place {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%; font-family: 'DM Serif Display', serif; font-size: 1.2rem; margin-bottom: 1rem;
+}
+.first .podium-place { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy-deep); }
+.second .podium-place { background: rgba(200,200,200,0.2); color: #ccc; border: 1px solid rgba(200,200,200,0.3); }
+.third .podium-place { background: rgba(180,120,60,0.2); color: #c88040; border: 1px solid rgba(180,120,60,0.3); }
+.podium-name { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--white); margin-bottom: 0.75rem; }
+.podium-members { list-style: none; padding: 0; }
+.podium-members li { font-size: 0.85rem; color: rgba(255,255,255,0.5); padding: 0.2rem 0; }
+.other-teams-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 2.5rem; margin-bottom: 1rem; }
+.other-teams { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.team-chip {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 1.2rem; text-align: center; transition: all 0.3s;
+}
+.team-chip:hover { background: rgba(255,255,255,0.06); border-color: rgba(77,196,191,0.2); }
+.team-chip h4 { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
+.team-chip p { font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.5; }
+
+/* ── Awards Gala ── */
+#awards { background: var(--white); padding: 5rem 2rem; }
+.awards-inner { max-width: 1100px; margin: 0 auto; }
+.awards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+.award-card {
+  background: var(--cream); border-radius: 10px; padding: 1.5rem 2rem;
+  border-left: 4px solid var(--teal); transition: all 0.3s;
+}
+.award-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.award-business { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--navy-deep); margin-bottom: 0.4rem; }
+.award-owners { font-size: 0.88rem; color: var(--text-body); line-height: 1.5; }
+.award-year { display: inline-block; margin-top: 0.5rem; font-size: 0.75rem; font-weight: 700; color: var(--teal); letter-spacing: 0.05em; }
+
+/* ── Report CTA ── */
+.report-cta {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 50%, var(--teal-deep) 100%);
+  border: 1px solid rgba(77,196,191,0.2); border-radius: 16px; padding: 3rem;
+  margin: 5rem auto; max-width: 1100px;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  position: relative; overflow: hidden;
+}
+.report-cta::before {
+  content: ''; position: absolute; right: -50px; top: -50px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(77,196,191,0.1) 0%, transparent 70%);
+}
+.report-cta-text h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 0.5rem; }
+.report-cta-text p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+
+/* ── Photos ── */
+#highlights { background: var(--cream); }
+.highlights-carousel {
+  position: relative;
+  margin-top: 2rem;
+  border-radius: 18px;
+  overflow: hidden;
+}
+.highlights-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+.highlight-slide {
+  min-width: 100%;
+}
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.highlight-card {
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 12px;
+  background: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  padding: 0;
+  appearance: none;
+}
+.highlight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(42,139,139,0.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.highlight-image {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--cream-warm), var(--white));
+}
+.highlight-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,29,53,0.04) 0%, rgba(15,29,53,0.32) 100%);
+}
+.highlight-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.highlights-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.highlights-nav-group {
+  display: flex;
+  gap: 0.75rem;
+}
+.highlights-nav {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: var(--white);
+  color: var(--navy-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.highlights-nav:hover {
+  color: var(--teal);
+  border-color: rgba(42,139,139,0.35);
+}
+.highlights-dots {
+  display: flex;
+  gap: 0.55rem;
+}
+.highlights-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(34,55,89,0.25);
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+}
+.highlights-dot.active {
+  background: var(--teal);
+  transform: scale(1.15);
+}
+.highlights-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 15, 28, 0.82);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 300;
+}
+.highlights-lightbox.open {
+  display: flex;
+}
+.lightbox-dialog {
+  width: min(980px, 100%);
+  background: rgba(15,29,53,0.96);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+}
+.lightbox-media {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #1a2b4a, #2a8b8b);
+}
+.lightbox-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,29,53,0.12) 0%, rgba(15,29,53,0.52) 100%);
+}
+.lightbox-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #0f1d35;
+}
+.lightbox-body {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.25rem 1.25rem;
+}
+.lightbox-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+.lightbox-close,
+.lightbox-nav {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  border-color: rgba(77,196,191,0.5);
+  color: var(--teal-bright);
+}
+
+/* ── Partners ── */
+#partners { background: var(--white); padding: 5rem 2rem; }
+.partners-inner { max-width: 1100px; margin: 0 auto; }
+.partner-tier { margin-top: 2.5rem; }
+.tier-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.partner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.partner-slot {
+  min-height: 118px;
+  background: var(--cream);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s;
+}
+.partner-slot:hover { border-color: var(--teal); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.partner-slot img {
+  width: 100%;
+  height: 64px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  filter: saturate(0.96) contrast(1.02);
+}
+
+/* ── Footer ── */
+.footer {
+  background: var(--navy-deep); padding: 3rem 2rem 2rem; border-top: 3px solid var(--teal);
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+.footer-brand { display: flex; align-items: center; gap: 0; }
+.footer-brand span {
+  font-family: 'DM Serif Display', serif;
+  color: var(--white);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.85rem; transition: color 0.25s; }
+.footer-links a:hover { color: var(--teal-bright); }
+.footer-copy { width: 100%; text-align: center; color: rgba(255,255,255,0.25); font-size: 0.78rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+
+/* ── Animations ── */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-8px); } 60% { transform: translateX(-50%) translateY(-4px); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--navy-deep); flex-direction: column; padding: 1rem; border-bottom: 3px solid var(--teal); }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .hero-mountains { height: clamp(180px, 28vh, 260px); }
+  .winner-slide-content {
+    padding: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .winner-play {
+    width: 56px;
+    height: 56px;
+  }
+  .winner-carousel-controls {
+    right: 0.9rem;
+    bottom: 0.9rem;
+  }
+  .highlight-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .highlights-controls,
+  .lightbox-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat-item:not(:last-child)::after { width: 40%; height: 1px; top: auto; bottom: 0; right: 30%; }
+  .about-grid { grid-template-columns: 1fr; }
+  .podium { grid-template-columns: 1fr; }
+  .awards-grid { grid-template-columns: 1fr; }
+  .report-cta { flex-direction: column; text-align: center; margin: 3rem 1rem; padding: 2rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-wordmark">Cree Nation Business Summit</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#bearden">Bear Den</a>
+      <a href="#awards">Awards</a>
+      <a href="#highlights">Photos</a>
+      <a href="#partners">Partners</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <!-- Stars -->
+  <div class="hero-stars" id="heroStars"></div>
+  <!-- Mountains -->
+  <svg class="hero-mountains" viewBox="0 0 1440 400" preserveAspectRatio="none" fill="none">
+    <!-- Back range -->
+    <path d="M0 400 L0 280 L120 180 L200 220 L320 120 L440 200 L520 140 L640 100 L720 160 L840 80 L960 150 L1040 100 L1120 170 L1200 90 L1320 160 L1440 120 L1440 400Z" fill="rgba(255,255,255,0.06)"/>
+    <!-- Mid range -->
+    <path d="M0 400 L0 310 L100 250 L220 290 L360 200 L480 260 L600 180 L720 240 L840 170 L960 230 L1080 190 L1200 250 L1320 200 L1440 240 L1440 400Z" fill="rgba(255,255,255,0.1)"/>
+    <!-- Front range -->
+    <path d="M0 400 L0 340 L160 280 L300 320 L440 260 L580 310 L720 250 L860 300 L1000 270 L1140 310 L1280 280 L1440 320 L1440 400Z" fill="rgba(255,255,255,0.15)"/>
+    <!-- Snow caps on mid range -->
+    <path d="M360 200 L390 210 L370 205Z" fill="rgba(255,255,255,0.3)"/>
+    <path d="M600 180 L630 195 L610 188Z" fill="rgba(255,255,255,0.3)"/>
+    <path d="M840 170 L870 185 L850 178Z" fill="rgba(255,255,255,0.3)"/>
+    <path d="M1080 190 L1110 205 L1090 198Z" fill="rgba(255,255,255,0.3)"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-badge">August 19–21, 2025</div>
+    <h1>2<sup>nd</sup> Cree Nation<br><em>Business Summit</em></h1>
+    <p class="hero-sub">Eeyou Entrepreneurship in Focus</p>
+    <p class="hero-location">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Mistissini, Eeyou Istchee
+    </p>
+    <div class="hero-cta">
+      <a href="#bearden" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Watch Bear Den Videos
+      </a>
+      <a href="#about" class="btn btn-outline">Explore the Summit</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="7 13 12 18 17 13"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="135">0</div>
+      <div class="stat-label"><strong>Delegates</strong>40 youth, 60 entrepreneurs, 25 leaders &amp; organizations</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-target="20" data-suffix="+">0</div>
+      <div class="stat-label"><strong>Sessions</strong>Workshops, presentations, panels &amp; roundtables</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-number" data-prefix="$" data-target="330" data-suffix="K">0</div>
+      <div class="stat-label"><strong>Invested</strong>In the Eeyou economy — food, décor, apparel, flights</div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="section-header reveal">
+    <span class="section-label">About the Summit</span>
+    <h2 class="section-title">Connecting Youth, Entrepreneurs<br>&amp; Leaders for <em>Eeyou Prosperity</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">Held in Mistissini from August 19–21, the 2nd Cree Nation Business Summit brought together youth, entrepreneurs, and leaders to connect, learn, and build a strong future for the Eeyou economy.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card reveal">
+      <h3>Youth Case Study Competition</h3>
+      <p>Young Eeyou minds stepped up to the challenge in the Bear Den — pitching innovative business ideas and demonstrating the entrepreneurial spirit that will drive our economy forward.</p>
+    </div>
+    <div class="about-card theme-highlight reveal">
+      <span class="theme-tag">2025 Theme</span>
+      <h3>Eeyou Entrepreneurship in Focus</h3>
+      <p>With a sharp focus on homegrown talent and innovation, this year's summit spotlighted the ingenuity and resilience of Eeyou entrepreneurs from across Eeyou Istchee.</p>
+    </div>
+    <div class="about-card reveal">
+      <h3>Business &amp; Leader Exchange Days</h3>
+      <p>Two full days of workshops, presentations, panels, and roundtables fostering meaningful dialogue between established leaders and emerging entrepreneurs.</p>
+    </div>
+    <div class="about-card reveal">
+      <h3>First Regional Awards Gala</h3>
+      <p>The Summit's inaugural Awards Gala celebrated outstanding contributions to the Eeyou economy, recognizing the individuals and businesses shaping our collective future.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Bear Den -->
+<section id="bearden">
+  <div class="bearden-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Competition Results</span>
+      <h2 class="section-title">2025 Eeyou Istchee<br><em>Bear Den</em> Case Study Competition</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Congratulations to everyone who participated! The judges were truly impressed by the heart, enthusiasm, and innovation that each team demonstrated, as well as the incredible creativity that came through in the promotional videos. The future of the Eeyou economy is bright!</p>
+    </div>
+
+    <div class="winner-carousel reveal" id="winnerCarousel" aria-label="Top three Bear Den winner videos">
+      <div class="winner-track">
+        <article class="winner-slide">
+          <img src="file:///C:/Users/brend/.cursor/projects/d-OneDrive-Cree-Nation-Government-Documents-Codespace-CNBS/assets/d__OneDrive_-_Cree_Nation_Government_Documents_Codespace_CNBS_Clearwater.jpg" alt="Clearwater Plaza Bear Den video preview">
+          <div class="winner-slide-content">
+            <div class="winner-slide-text">
+              <span class="winner-kicker">1st Place Winner</span>
+              <h3>Clearwater Plaza</h3>
+              <p>Featured video preview from the winning team, spotlighting their pitch and entrepreneurial vision for Eeyou Istchee.</p>
+            </div>
+            <div class="winner-play" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,6 19,12 8,18"></polygon></svg>
+            </div>
+          </div>
+        </article>
+        <article class="winner-slide">
+          <img src="file:///C:/Users/brend/.cursor/projects/d-OneDrive-Cree-Nation-Government-Documents-Codespace-CNBS/assets/d__OneDrive_-_Cree_Nation_Government_Documents_Codespace_CNBS_Eeyou_and_Me.jpg" alt="Eeyou and Me Bear Den video preview">
+          <div class="winner-slide-content">
+            <div class="winner-slide-text">
+              <span class="winner-kicker">2nd Place Winner</span>
+              <h3>Eeyou and Me</h3>
+              <p>A featured still from the runner-up team's video, highlighting their tourism-focused concept and presentation.</p>
+            </div>
+            <div class="winner-play" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,6 19,12 8,18"></polygon></svg>
+            </div>
+          </div>
+        </article>
+        <article class="winner-slide">
+          <img src="file:///C:/Users/brend/.cursor/projects/d-OneDrive-Cree-Nation-Government-Documents-Codespace-CNBS/assets/d__OneDrive_-_Cree_Nation_Government_Documents_Codespace_CNBS_Big_River.jpg" alt="Big River Eeyou Centre Bear Den video preview">
+          <div class="winner-slide-content">
+            <div class="winner-slide-text">
+              <span class="winner-kicker">3rd Place Winner</span>
+              <h3>Big River Eeyou Centre</h3>
+              <p>An aerial preview from the third-place team's video, reinforcing place, community, and destination potential.</p>
+            </div>
+            <div class="winner-play" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="8,6 19,12 8,18"></polygon></svg>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="winner-carousel-controls">
+        <button class="winner-nav" type="button" id="winnerPrev" aria-label="Previous winner">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="winner-nav" type="button" id="winnerNext" aria-label="Next winner">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="winner-dots" aria-label="Winner carousel pagination">
+        <button class="winner-dot active" type="button" data-slide="0" aria-label="Show Clearwater Plaza"></button>
+        <button class="winner-dot" type="button" data-slide="1" aria-label="Show Eeyou and Me"></button>
+        <button class="winner-dot" type="button" data-slide="2" aria-label="Show Big River Eeyou Centre"></button>
+      </div>
+    </div>
+
+    <div class="podium">
+      <div class="podium-card first reveal is-active" data-slide="0">
+        <div class="podium-media">
+          <img src="file:///C:/Users/brend/.cursor/projects/d-OneDrive-Cree-Nation-Government-Documents-Codespace-CNBS/assets/d__OneDrive_-_Cree_Nation_Government_Documents_Codespace_CNBS_Clearwater.jpg" alt="Clearwater Plaza video thumbnail">
+        </div>
+        <div class="podium-place">1</div>
+        <h3 class="podium-name">Clearwater Plaza</h3>
+        <ul class="podium-members">
+          <li>Bradley Mianscum</li>
+          <li>Cain Stewart</li>
+          <li>Clarissa Happyjack</li>
+          <li>Sara Dash</li>
+          <li>Savannah Jolly</li>
+        </ul>
+      </div>
+      <div class="podium-card second reveal" data-slide="1">
+        <div class="podium-media">
+          <img src="file:///C:/Users/brend/.cursor/projects/d-OneDrive-Cree-Nation-Government-Documents-Codespace-CNBS/assets/d__OneDrive_-_Cree_Nation_Government_Documents_Codespace_CNBS_Eeyou_and_Me.jpg" alt="Eeyou and Me video thumbnail">
+        </div>
+        <div class="podium-place">2</div>
+        <h3 class="podium-name">Eeyou and Me</h3>
+        <ul class="podium-members">
+          <li>Morning Star Fayard</li>
+          <li>Aaliyah Wapachee</li>
+          <li>Curtis Mark-Stewart</li>
+          <li>Freddie Dixon</li>
+        </ul>
+      </div>
+      <div class="podium-card third reveal" data-slide="2">
+        <div class="podium-media">
+          <img src="file:///C:/Users/brend/.cursor/projects/d-OneDrive-Cree-Nation-Government-Documents-Codespace-CNBS/assets/d__OneDrive_-_Cree_Nation_Government_Documents_Codespace_CNBS_Big_River.jpg" alt="Big River Eeyou Centre video thumbnail">
+        </div>
+        <div class="podium-place">3</div>
+        <h3 class="podium-name">Big River Eeyou Centre</h3>
+        <ul class="podium-members">
+          <li>Amanda Capassisit</li>
+          <li>Joshua Blackned</li>
+          <li>Georgina Chiskamish</li>
+          <li>Daniel Longchap</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="other-teams-label">All Competing Teams</p>
+    <div class="other-teams reveal">
+      <div class="team-chip">
+        <h4>Eeyou Burials</h4>
+        <p>Vincent RatteBurelle, Darius Shashaweskum, Koyesha IserhoC Coonishish, Hannah Desgagnes, Reshawn Matoush</p>
+      </div>
+      <div class="team-chip">
+        <h4>Eenou-Edouwin</h4>
+        <p>Elvis TrapperGunner, Jaylen Weistche, Roberta Blacksmith, Anthony Rombotis, Philip Brien</p>
+      </div>
+      <div class="team-chip">
+        <h4>Eeyou Spa</h4>
+        <p>Scott Serafinowicz, Tyra Moses, Kaynan Lafond, Farrah Salhi, Crystal Mianscum</p>
+      </div>
+      <div class="team-chip">
+        <h4>Cree Motor Sports</h4>
+        <p>Carol Ann Tanoush, Precious Shecapio-Blacksmith, Lindsay Kitchicappo, Ardurmus Mark Masty</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Awards Gala -->
+<section id="awards">
+  <div class="awards-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Regional Awards Gala</span>
+      <h2 class="section-title">Award Winners — <em>Entrepreneurs with 40+ Years in Business</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">The inaugural Awards Gala honoured Eeyou entrepreneurs whose decades of dedication have built the foundation of our regional economy.</p>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card reveal">
+        <div class="award-business">A.D.E.L.S. Restaurant</div>
+        <div class="award-owners">Annie Brien, Denise Coon-Come, Elizabeth Gunner, Laurie Brien, and Sharron Brien</div>
+        <span class="award-year">Established 1971</span>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-business">Blackned Construction</div>
+        <div class="award-owners">James Blackned, Bert Blackned, and Emily Hester</div>
+        <span class="award-year">Established 1975</span>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-business">Waswanipi Grocery Store</div>
+        <div class="award-owners">Sandra Happyjack and Delores Gull</div>
+        <span class="award-year">Established 1978/79</span>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-business">Meechum Reg'd</div>
+        <div class="award-owners">Beverly Quinn</div>
+        <span class="award-year">Established 1982</span>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-business">Natives Exploration Services</div>
+        <div class="award-owners">Sam R. Bosum</div>
+        <span class="award-year">Established 1984</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Event Report CTA -->
+<div style="padding: 0 2rem;">
+  <div class="report-cta reveal">
+    <div class="report-cta-text">
+      <h3>Download the Event Report</h3>
+      <p>Explore the full story — sessions, insights, and highlights from three days of Eeyou entrepreneurship.</p>
+    </div>
+    <a href="https://www.cngov.ca/wp-content/uploads/2026/03/2025-12-16_cree-nation-business-summit_report_final-1.pdf" class="btn btn-gold" target="_blank" rel="noopener noreferrer">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Report
+    </a>
+  </div>
+</div>
+
+<!-- Photos & Highlights -->
+<section class="section" id="highlights">
+  <div class="section-header reveal">
+    <span class="section-label">Relive the Moments</span>
+    <h2 class="section-title">Photos &amp; <em>Highlights</em></h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="highlights-carousel reveal" id="highlightsCarousel">
+    <div class="highlights-track">
+      <div class="highlight-slide">
+        <div class="highlight-grid">
+          <button class="highlight-card" type="button" data-photo-index="0">
+            <div class="highlight-image"><img src="gallery-web/gallery-1.jpg" alt="Summit opening photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="1">
+            <div class="highlight-image"><img src="gallery-web/gallery-2.jpg" alt="Youth delegates photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="2">
+            <div class="highlight-image"><img src="gallery-web/gallery-3.jpg" alt="Bear Den pitches photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="3">
+            <div class="highlight-image"><img src="gallery-web/gallery-4.jpg" alt="Networking moments photo"></div>
+          </button>
+        </div>
+      </div>
+      <div class="highlight-slide">
+        <div class="highlight-grid">
+          <button class="highlight-card" type="button" data-photo-index="4">
+            <div class="highlight-image"><img src="gallery-web/gallery-5.jpg" alt="Business exchange photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="5">
+            <div class="highlight-image"><img src="gallery-web/gallery-6.jpg" alt="Awards gala photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="6">
+            <div class="highlight-image"><img src="gallery-web/gallery-7.jpg" alt="Community highlights photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="7">
+            <div class="highlight-image"><img src="gallery-web/gallery-8.jpg" alt="Closing moments photo"></div>
+          </button>
+        </div>
+      </div>
+      <div class="highlight-slide">
+        <div class="highlight-grid">
+          <button class="highlight-card" type="button" data-photo-index="8">
+            <div class="highlight-image"><img src="gallery-web/gallery-9.jpg" alt="Summit details photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="9">
+            <div class="highlight-image"><img src="gallery-web/gallery-10.jpg" alt="Gathering spaces photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="10">
+            <div class="highlight-image"><img src="gallery-web/gallery-11.jpg" alt="Featured moments photo"></div>
+          </button>
+          <button class="highlight-card" type="button" data-photo-index="11">
+            <div class="highlight-image"><img src="gallery-web/gallery-12.jpg" alt="Event reflections photo"></div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="highlights-controls">
+      <div class="highlights-nav-group">
+        <button class="highlights-nav" type="button" id="highlightsPrev" aria-label="Previous photo set">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="highlights-nav" type="button" id="highlightsNext" aria-label="Next photo set">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="highlights-dots" aria-label="Photo carousel pagination">
+        <button class="highlights-dot active" type="button" data-slide="0" aria-label="Show first photo set"></button>
+        <button class="highlights-dot" type="button" data-slide="1" aria-label="Show second photo set"></button>
+        <button class="highlights-dot" type="button" data-slide="2" aria-label="Show third photo set"></button>
+      </div>
+    </div>
+  </div>
+  <div class="highlights-lightbox" id="highlightsLightbox" aria-hidden="true">
+    <div class="lightbox-dialog">
+      <div class="lightbox-media" id="lightboxMedia"><img src="gallery-web/gallery-1.jpg" alt="Summit opening photo"></div>
+      <div class="lightbox-body">
+        <div class="lightbox-actions">
+          <button class="lightbox-nav" type="button" id="lightboxPrev" aria-label="Previous image">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="lightbox-nav" type="button" id="lightboxNext" aria-label="Next image">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Close lightbox">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners & Sponsors -->
+<section id="partners">
+  <div class="partners-inner">
+    <div class="section-header reveal">
+      <span class="section-label">Wachiya to Our Supporters</span>
+      <h2 class="section-title">Partners &amp; <em>Sponsors</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">The 2nd Cree Nation Business Summit was made possible by the generous support of partners and sponsors committed to strengthening the Eeyou economy.</p>
+    </div>
+    <div class="partner-tier reveal">
+      <div class="tier-label">Major Sponsors</div>
+      <div class="partner-grid">
+        <div class="partner-slot"><img src="Sponsors/ASD-major.jpeg" alt="ASD major sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/CNYC-major.jpeg" alt="CNYC major sponsor logo"></div>
+      </div>
+    </div>
+    <div class="partner-tier reveal">
+      <div class="tier-label">Gold Sponsors</div>
+      <div class="partner-grid">
+        <div class="partner-slot"><img src="Sponsors/dhilmar-gold.jpeg" alt="Dhilmar gold sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/gold-adc.jpeg" alt="ADC gold sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/hydro-gold.jpeg" alt="Hydro gold sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/justice-gold.jpeg" alt="Justice gold sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/TD-gold.jpeg" alt="TD gold sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/troilus-gold.jpeg" alt="Troilus gold sponsor logo"></div>
+      </div>
+    </div>
+    <div class="partner-tier reveal">
+      <div class="tier-label">Silver Sponsors</div>
+      <div class="partner-grid">
+        <div class="partner-slot"><img src="Sponsors/desjardin-silver2.webp" alt="Desjardin silver sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/mobile-silver.jpeg" alt="Mobile silver sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/rio-silver.jpeg" alt="Rio silver sponsor logo"></div>
+      </div>
+    </div>
+    <div class="partner-tier reveal">
+      <div class="tier-label">Bronze Sponsors</div>
+      <div class="partner-grid">
+        <div class="partner-slot"><img src="Sponsors/kenorland-bronze.png" alt="Kenorland bronze sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/ouje-bronze.jpeg" alt="Ouje bronze sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/RCG-bronze.png" alt="RCG bronze sponsor logo"></div>
+        <div class="partner-slot"><img src="Sponsors/wask-bronze.jpeg" alt="Wask bronze sponsor logo"></div>
+      </div>
+    </div>
+    <div class="partner-tier reveal">
+      <div class="tier-label">Partners</div>
+      <div class="partner-grid">
+        <div class="partner-slot"><img src="Sponsors/BDC-partner.jpeg" alt="BDC partner logo"></div>
+        <div class="partner-slot"><img src="Sponsors/eeyou-partner.jpeg" alt="Eeyou partner logo"></div>
+        <div class="partner-slot"><img src="Sponsors/IPS-partner.jpeg" alt="IPS partner logo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>Cree Nation Business Summit</span>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#bearden">Bear Den</a>
+      <a href="#awards">Awards</a>
+      <a href="#highlights">Photos</a>
+      <a href="#partners">Partners</a>
+    </div>
+  </div>
+  <p class="footer-copy">&copy; 2025 Cree Nation Business Summit. All rights reserved. Proudly organized in Eeyou Istchee.</p>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+// Mobile toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// Generate stars
+(function() {
+  const container = document.getElementById('heroStars');
+  for (let i = 0; i < 50; i++) {
+    const star = document.createElement('div');
+    star.className = 'hero-star' + (Math.random() > 0.85 ? ' large' : '');
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 60 + '%';
+    star.style.animationDelay = (Math.random() * 4) + 's';
+    star.style.animationDuration = (2 + Math.random() * 3) + 's';
+    container.appendChild(star);
+  }
+})();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 60));
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = prefix + current + suffix;
+      }, 25);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObserver.observe(el));
+
+// Bear Den winner carousel
+(function() {
+  const carousel = document.getElementById('winnerCarousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.winner-track');
+  const slides = Array.from(carousel.querySelectorAll('.winner-slide'));
+  const dots = Array.from(carousel.querySelectorAll('.winner-dot'));
+  const cards = Array.from(document.querySelectorAll('.podium-card[data-slide]'));
+  const prev = document.getElementById('winnerPrev');
+  const next = document.getElementById('winnerNext');
+  let index = 0;
+
+  function updateCarousel(nextIndex) {
+    index = (nextIndex + slides.length) % slides.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+    cards.forEach((card, cardIndex) => card.classList.toggle('is-active', cardIndex === index));
+  }
+
+  prev.addEventListener('click', () => updateCarousel(index - 1));
+  next.addEventListener('click', () => updateCarousel(index + 1));
+  dots.forEach(dot => dot.addEventListener('click', () => updateCarousel(Number(dot.dataset.slide))));
+  cards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => updateCarousel(Number(card.dataset.slide)));
+  });
+
+  setInterval(() => updateCarousel(index + 1), 5000);
+})();
+
+// Highlights carousel and lightbox
+(function() {
+  const carousel = document.getElementById('highlightsCarousel');
+  const lightbox = document.getElementById('highlightsLightbox');
+  if (!carousel || !lightbox) return;
+
+  const track = carousel.querySelector('.highlights-track');
+  const slides = Array.from(carousel.querySelectorAll('.highlight-slide'));
+  const dots = Array.from(carousel.querySelectorAll('.highlights-dot'));
+  const cards = Array.from(carousel.querySelectorAll('.highlight-card'));
+  const prev = document.getElementById('highlightsPrev');
+  const next = document.getElementById('highlightsNext');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxMedia = document.getElementById('lightboxMedia');
+  let slideIndex = 0;
+  let photoIndex = 0;
+
+  function updateSlides(nextIndex) {
+    slideIndex = (nextIndex + slides.length) % slides.length;
+    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+    dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === slideIndex));
+  }
+
+  function updateLightbox(nextPhotoIndex) {
+    photoIndex = (nextPhotoIndex + cards.length) % cards.length;
+    const card = cards[photoIndex];
+    const image = card.querySelector('.highlight-image img');
+    lightboxMedia.innerHTML = `<img src="${image.getAttribute('src')}" alt="${image.getAttribute('alt')}">`;
+    updateSlides(Math.floor(photoIndex / 4));
+  }
+
+  function openLightbox(nextPhotoIndex) {
+    updateLightbox(nextPhotoIndex);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  prev.addEventListener('click', () => updateSlides(slideIndex - 1));
+  next.addEventListener('click', () => updateSlides(slideIndex + 1));
+  dots.forEach(dot => dot.addEventListener('click', () => updateSlides(Number(dot.dataset.slide))));
+  cards.forEach(card => card.addEventListener('click', () => openLightbox(Number(card.dataset.photoIndex))));
+  lightboxPrev.addEventListener('click', () => updateLightbox(photoIndex - 1));
+  lightboxNext.addEventListener('click', () => updateLightbox(photoIndex + 1));
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') updateLightbox(photoIndex - 1);
+    if (event.key === 'ArrowRight') updateLightbox(photoIndex + 1);
+  });
+})();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
